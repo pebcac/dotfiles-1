@@ -83,7 +83,7 @@ brew install jq speedtest-cli
 
 # Pull down personal dotfiles
 echo ''
-read -p "Do you want to use jldeen's dotfiles? y/n" -n 1 -r
+read -p "Do you want to use pdavis's dotfiles? y/n" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
