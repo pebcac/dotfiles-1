@@ -88,8 +88,8 @@ echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo ''
-	echo "Now pulling down jldeen dotfiles..."
-	git clone https://github.com/jldeen/dotfiles.git ~/.dotfiles
+	echo "Now pulling down pdavis dotfiles..."
+	git clone https://github.com/pebcac/dotfiles-1.git ~/.dotfiles
 	echo ''
 	cd $HOME/.dotfiles && echo "switched to .dotfiles dir..."
 	echo ''
@@ -98,7 +98,7 @@ then
 	echo "Now configuring symlinks..." && $HOME/.dotfiles/script/bootstrap
     if [[ $? -eq 0 ]]
     then
-        echo "Successfully configured your environment with jldeen's macOS dotfiles..."
+        echo "Successfully configured your environment with pdavis's macOS dotfiles..."
     else
         echo "jldeen's macOS dotfiles were not applied successfully..." >&2
 fi
