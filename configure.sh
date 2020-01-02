@@ -100,11 +100,11 @@ then
     then
         echo "Successfully configured your environment with pdavis's macOS dotfiles..."
     else
-        echo "jldeen's macOS dotfiles were not applied successfully..." >&2
+        echo "pdavis's macOS dotfiles were not applied successfully..." >&2
 fi
 else 
 	echo ''
-    echo "You chose not to apply jldeen's macOS dotfiles. You will need to configure your environment manually..."
+    echo "You chose not to apply pdavis's macOS dotfiles. You will need to configure your environment manually..."
 	echo ''
 	echo "Setting defaults for .zshrc and .bashrc..."
 	echo ''
