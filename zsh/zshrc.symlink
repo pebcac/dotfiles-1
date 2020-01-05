@@ -89,7 +89,7 @@ DEFAULT_USER="$(whoami)"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo git history tmux tmuxinator zsh-autosuggestions zsh-completions)
+plugins=(sudo ansible encode64 gem kubectl minikube node oc pip pod postgres ssh-agent sublime sudo vault vscode git history tmux tmuxinator zsh-autosuggestions zsh-completions)
 
 # User configuration
 
