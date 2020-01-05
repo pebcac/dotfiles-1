@@ -111,6 +111,14 @@ plugins=(sudo git history tmux tmuxinator zsh-autosuggestions zsh-completions)
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# My Aliases
+alias mcls="mc ls"
+alias mccp="mc cp"
+alias mccat="mc cat"
+alias mcmkdir="mc mkb"
+alias mcpipe="mc pipe"
+alias mcfind="mc find"
+
 #---- CUSTOM ----
 #Powerlevel9k/Powerlevel10k settings
 # https://github.com/bhilburn/powerlevel9k/wiki/Show-Off-Your-Config#p9kgt
