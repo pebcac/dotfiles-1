@@ -126,3 +126,6 @@ GIT_PS1_SHOWUPSTREAM="auto"
 
 # az cli
 autoload bashcompinit && bashcompinit
+
+export GOPATH=~/usr/local/opt/go
+export PATH=$GOPATH/bin:$PATH

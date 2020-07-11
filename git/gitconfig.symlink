@@ -34,3 +34,5 @@
 [user]
 	name = Preston Davis
 	email = pdavis@redhat.com
+[credential]
+	helper = osxkeychain
