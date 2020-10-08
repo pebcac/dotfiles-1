@@ -80,5 +80,9 @@
         "/Users/pdavis/projects"
     ],
     "go.toolsGopath": "/Users/pdavis/usr/local/opt/go",
-    "go.useLanguageServer": true
+    "go.useLanguageServer": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "gitlens.views.compare.files.layout": "list",
+    "diffEditor.renderSideBySide": false,
+    "git.confirmSync": false
 }

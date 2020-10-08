@@ -1,6 +1,14 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Path to your oh-my-zsh installation oh-my-zsh specific settings
 export ZSH=~/.oh-my-zsh
 export TERM=xterm-256color
+export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config:$HOME/.kube/configs/kubeconfig.yaml
 source $ZSH/oh-my-zsh.sh
 
 # ZSH Customization Settings
@@ -13,8 +21,8 @@ source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 zstyle ':bracketed-paste-magic' active-widgets '.self-*'
 
 # zsh tmux settings
-ZSH_TMUX_AUTOSTART='true'
-ZSH_TMUX_AUTOCONNECT='false' # do not autoconnect to existing tmux session, allows a new term new tmux session
+#ZSH_TMUX_AUTOSTART='true'
+#ZSH_TMUX_AUTOCONNECT='false' # do not autoconnect to existing tmux session, allows a new term new tmux session
 
 # #Background Jobs Function
 # set_default POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE true
@@ -91,7 +99,7 @@ DEFAULT_USER="$(whoami)"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo ansible encode64 gem kubectl minikube node oc pip pod postgres ssh-agent sublime sudo vault vscode git history tmux tmuxinator zsh-autosuggestions zsh-completions)
+plugins=(sudo ansible encode64 gem kubectl minikube node oc pip pod postgres sublime sudo vault vscode git history tmux tmuxinator zsh-autosuggestions zsh-completions)
 
 # User configuration
 
@@ -110,10 +118,8 @@ plugins=(sudo ansible encode64 gem kubectl minikube node oc pip pod postgres ssh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
 # My Aliases
+shopt -s autocd
 alias mcls="mc ls"
 alias mccp="mc cp"
 alias mccat="mc cat"
@@ -122,6 +128,7 @@ alias mcpipe="mc pipe"
 alias mcfind="mc find"
 alias code="/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron"
 alias f="fzf -i"
+alias k="/usr/local/bin/kubectl"
 
 #---- CUSTOM ----
 #Powerlevel9k/Powerlevel10k settings
@@ -176,3 +183,6 @@ source <(kubectl completion zsh)
 source $(dirname $(gem which colorls))/tab_complete.sh
 #---- End Source ----
 #---- END CUSTOM ----
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
