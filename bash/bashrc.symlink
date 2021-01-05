@@ -129,3 +129,4 @@ autoload bashcompinit && bashcompinit
 
 export GOPATH=~/usr/local/opt/go
 export PATH=$GOPATH/bin:$PATH
+eval "$(starship init bash)"

@@ -8,11 +8,10 @@ fi
 # Path to your oh-my-zsh installation oh-my-zsh specific settings
 export ZSH=~/.oh-my-zsh
 export TERM=xterm-256color
-export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config:$HOME/.kube/configs/kubeconfig.yaml
 source $ZSH/oh-my-zsh.sh
 
 # ZSH Customization Settings
-#ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 #ZSH_THEME="geoffgarside"
 source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -80,7 +79,7 @@ DEFAULT_USER="$(whoami)"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -90,7 +89,7 @@ DEFAULT_USER="$(whoami)"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -99,7 +98,7 @@ DEFAULT_USER="$(whoami)"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo ansible encode64 gem kubectl minikube node oc pip pod postgres sublime sudo vault vscode git history tmux tmuxinator zsh-autosuggestions zsh-completions)
+plugins=(sudo ansible encode64 gem kubectl node oc pip pod postgres sublime sudo vault vscode git tmux tmuxinator zsh-autosuggestions zsh-completions)
 
 # User configuration
 
@@ -119,7 +118,7 @@ plugins=(sudo ansible encode64 gem kubectl minikube node oc pip pod postgres sub
 # export ARCHFLAGS="-arch x86_64"
 
 # My Aliases
-shopt -s autocd
+#shopt -s autocd
 alias mcls="mc ls"
 alias mccp="mc cp"
 alias mccat="mc cat"
@@ -129,16 +128,20 @@ alias mcfind="mc find"
 alias code="/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron"
 alias f="fzf -i"
 alias k="/usr/local/bin/kubectl"
+alias ls="ls -ahG"
 
 #---- CUSTOM ----
 #Powerlevel9k/Powerlevel10k settings
 # https://github.com/bhilburn/powerlevel9k/wiki/Show-Off-Your-Config#p9kgt
-source $ZSH/oh-my-zsh.sh
-source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.p9kgt
-source $HOME/.functions
-source $HOME/.aliases
+#source $ZSH/oh-my-zsh.sh
+#source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source $HOME/.p9kgt
+#source $HOME/.functions
+#source $HOME/.aliases
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # autoload ----------------------------------------------------------------------
 autoload -Uz vcs_info 
@@ -149,8 +152,8 @@ autoload -U compinit && compinit
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 
 #styles
-ZSH_HIGHLIGHT_STYLES[default]=none
-# ZSH_HIGHLIGHT_STYLES[function]=fg=magenta,bold
+ZSH_HIGHLIGHT_STYLES[default]=solar
+ZSH_HIGHLIGHT_STYLES[function]=fg=magenta,bold
 ZSH_HIGHLIGHT_STYLES[command]=fg=green
 ZSH_HIGHLIGHT_STYLES[precommand]=fg=green
 ZSH_HIGHLIGHT_STYLES[alias]=fg=green
@@ -159,13 +162,13 @@ ZSH_HIGHLIGHT_STYLES[builtin]=fg=green
 ZSH_HIGHLIGHT_STYLES[path]=fg=cyan,underline
 ZSH_HIGHLIGHT_STYLES[path_prefix]=fg=cyan
 ZSH_HIGHLIGHT_STYLES[path_approx]=fg=cyan
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=240
+ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=240
 
 # patterns
 ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red') # To have commands starting with `rm -rf` in red:
 
 #---- Export ----
-export PATH=$PATH:/usr/local/lib/ruby/gems/2.7.0/bin:/usr/local/opt/ruby/bin:/Users/pdavis/bin:/Users/pdavis/crwctl/bin
+export PATH=$PATH:/usr/local/lib/ruby/gems/3.7.0/bin:/usr/local/opt/ruby/bin:/Users/pdavis/bin:/Users/pdavis/crwctl/bin:/usr/local/sbin
 # export GOPATH=~/usr/local/opt/go 
 export GOPATH=/Users/pdavis/go
 export PATH=$GOPATH/bin:$PATH
@@ -184,5 +187,12 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 #---- End Source ----
 #---- END CUSTOM ----
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Kubernetes export
+#export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config:$HOME/.kube/configs/kubeconfig.yaml
+POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+eval "$(sharship init zsh)"
