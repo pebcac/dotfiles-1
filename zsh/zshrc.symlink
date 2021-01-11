@@ -163,17 +163,17 @@ autoload -U compinit && compinit
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 
 #styles
-ZSH_HIGHLIGHT_STYLES[default]=solar
-ZSH_HIGHLIGHT_STYLES[function]=fg=magenta,bold
-ZSH_HIGHLIGHT_STYLES[command]=fg=green
-ZSH_HIGHLIGHT_STYLES[precommand]=fg=green
-ZSH_HIGHLIGHT_STYLES[alias]=fg=green
-ZSH_HIGHLIGHT_STYLES[builtin]=fg=green
+#ZSH_HIGHLIGHT_STYLES[default]=solar
+#ZSH_HIGHLIGHT_STYLES[function]=fg=magenta,bold
+#ZSH_HIGHLIGHT_STYLES[command]=fg=green
+#ZSH_HIGHLIGHT_STYLES[precommand]=fg=green
+#ZSH_HIGHLIGHT_STYLES[alias]=fg=green
+#ZSH_HIGHLIGHT_STYLES[builtin]=fg=green
 #path
-ZSH_HIGHLIGHT_STYLES[path]=fg=cyan,underline
-ZSH_HIGHLIGHT_STYLES[path_prefix]=fg=cyan
-ZSH_HIGHLIGHT_STYLES[path_approx]=fg=cyan
- ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=240
+#ZSH_HIGHLIGHT_STYLES[path]=fg=cyan,underline
+#ZSH_HIGHLIGHT_STYLES[path_prefix]=fg=cyan
+#ZSH_HIGHLIGHT_STYLES[path_approx]=fg=cyan
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=240
 
 # patterns
 ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red') # To have commands starting with `rm -rf` in red:
@@ -206,4 +206,4 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-eval "$(sharship init zsh)"
+#eval "$(sharship init zsh)"
