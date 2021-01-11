@@ -5,71 +5,46 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Path to your oh-my-zsh installation oh-my-zsh specific settings
-export ZSH=~/.oh-my-zsh
-export TERM=xterm-256color
-source $ZSH/oh-my-zsh.sh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/opt/homebrew/bin:$PATH
 
-# ZSH Customization Settings
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/pdavis/.oh-my-zsh"
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+#ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel10k/powerlevel10k"
-#ZSH_THEME="geoffgarside"
-source /usr/local/opt/powerlevel10k/powerlevel10k.zsh-theme
 
-# fix pasting speed
-# ref https://github.com/zsh-users/zsh-autosuggestions/issues/238
-zstyle ':bracketed-paste-magic' active-widgets '.self-*'
-
-# zsh tmux settings
-#ZSH_TMUX_AUTOSTART='true'
-#ZSH_TMUX_AUTOCONNECT='false' # do not autoconnect to existing tmux session, allows a new term new tmux session
-
-# #Background Jobs Function
-# set_default POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE true
-# prompt_background_jobs() {
-# local background_jobs_number=${$(jobs -l | wc -l)// /}
-# local wrong_lines=`jobs -l | awk '/pwd now/{ count++ } END {print count}'`
-# if [[ wrong_lines -gt 0 ]]; then
-#      background_jobs_number=$(( $background_jobs_number - $wrong_lines ))
-#   fi
-#   if [[ background_jobs_number -gt 0 ]]; then
-#     local background_jobs_number_print="1"
-#     if [[ "$POWERLEVEL9K_BACKGROUND_JOBS_VERBOSE" == "true" ]] && [[ "$background_jobs_number" -gt 1 ]]; then
-#       background_jobs_number_print="$background_jobs_number"
-#     fi
-#     "$1_prompt_segment" "$0" "$2" "$DEFAULT_COLOR" "cyan" "$background_jobs_number_print" 'BACKGROUND_JOBS_ICON'
-#   fi
-# }
-
-# Refresh Function - https://babushk.in/posts/renew-environment-tmux.html
-# if [ -n "$TMUX" ]; then                                                                               
-#   function refresh {                                                                                
-#     export $(tmux show-environment | grep "^SSH_AUTH_SOCK")                                       
-#     export $(tmux show-environment | grep "^DISPLAY")                                               
-#   }                                                                                                 
-# else                                                                                                  
-#   function refresh { }                                                                              
-# fi
-
-# POWERLEVEL9K_TIME_FORMAT="%D{%T | %m.%d.%y}"
-## 
-
-# Default username to hide "user@hostname" info
-DEFAULT_USER="$(whoami)"
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
 
-#Uncomment the following line to disable colors in ls.
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
@@ -79,7 +54,7 @@ DEFAULT_USER="$(whoami)"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -88,17 +63,23 @@ COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="mm/dd/yyyy"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(sudo ansible encode64 gem kubectl node oc pip pod postgres sublime sudo vault vscode git tmux tmuxinator zsh-autosuggestions zsh-completions)
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -117,93 +98,23 @@ plugins=(sudo ansible encode64 gem kubectl node oc pip pod postgres sublime sudo
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# My Aliases
-#shopt -s autocd
-alias mcls="mc ls"
-alias mccp="mc cp"
-alias mccat="mc cat"
-alias mcmkdir="mc mkb"
-alias mcpipe="mc pipe"
-alias mcfind="mc find"
-alias code="/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron"
-alias f="fzf -i"
-alias k="/usr/local/bin/kubectl"
-# alias ls="ls -ahG"
-alias lc='colorls -la'
-alias ls="colorls --sd -A"
-alias zshconfig="code ~/.zshrc"
-alias ohmyzsh="code ~/.oh-my-zsh"
-alias config='/usr/bin/git --git-dir=/Users/$(whoami)/.cfg/ --work-tree=/Users/$(whoami)'
-alias h3="/usr/local/bin/tmp/helm"
-alias badwifi='k config use-context docker-for-desktop'
-alias jdk8s='k config use-context jdk8s-us'
-alias js='~/bin/show-struct.py'
-#acs-engine
-alias acse="/usr/local/bin/acs-engine"
-
-#---- CUSTOM ----
-#Powerlevel9k/Powerlevel10k settings
-# https://github.com/bhilburn/powerlevel9k/wiki/Show-Off-Your-Config#p9kgt
-#source $ZSH/oh-my-zsh.sh
-#source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-#source $HOME/.p9kgt
-#source $HOME/.functions
-#source $HOME/.aliases
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ibrew="arch -x86_64 /opt/homebrew/bin/brew"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# autoload ----------------------------------------------------------------------
-autoload -Uz vcs_info 
-autoload -Uz colors && colors
-autoload -U compinit && compinit
+# ZSH Completions 
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
-# syntax highlighting
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-
-#styles
-#ZSH_HIGHLIGHT_STYLES[default]=solar
-#ZSH_HIGHLIGHT_STYLES[function]=fg=magenta,bold
-#ZSH_HIGHLIGHT_STYLES[command]=fg=green
-#ZSH_HIGHLIGHT_STYLES[precommand]=fg=green
-#ZSH_HIGHLIGHT_STYLES[alias]=fg=green
-#ZSH_HIGHLIGHT_STYLES[builtin]=fg=green
-#path
-#ZSH_HIGHLIGHT_STYLES[path]=fg=cyan,underline
-#ZSH_HIGHLIGHT_STYLES[path_prefix]=fg=cyan
-#ZSH_HIGHLIGHT_STYLES[path_approx]=fg=cyan
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=fg=240
-
-# patterns
-ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red') # To have commands starting with `rm -rf` in red:
-
-#---- Export ----
-export PATH=$PATH:/usr/local/lib/ruby/gems/3.7.0/bin:/usr/local/opt/ruby/bin:/Users/pdavis/bin:/Users/pdavis/crwctl/bin:/usr/local/sbin
-# export GOPATH=~/usr/local/opt/go 
-export GOPATH=/Users/pdavis/go
-export PATH=$GOPATH/bin:$PATH
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:/usr/local/bin/node
-export PATH="/usr/local/opt/node@8/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export MONGO_PATH=/usr/local/mongodb 
-export PATH=$PATH:$MONGO_PATH/bin
-#---- End Export ----
-
-#---- Source ----
-[ -f ~/bin/fubectl.source ] && source ~/bin/fubectl.source
-source <(kubectl completion zsh)
-source $(dirname $(gem which colorls))/tab_complete.sh
-#---- End Source ----
-#---- END CUSTOM ----
-
-## To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Kubernetes export
-#export KUBECONFIG=$KUBECONFIG:$HOME/.kube/config:$HOME/.kube/configs/kubeconfig.yaml
-POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-#eval "$(sharship init zsh)"
+  autoload -Uz compinit
+  compinit
+fi
